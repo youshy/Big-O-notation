@@ -1,3 +1,6 @@
+// Big-O - used to explain algorithimic complexity - how runtime behaves on different load
+// How many steps function takes to perform certain task
+
 const nemo = ["nemo"];
 const everyone = [
   "dory",
@@ -12,6 +15,10 @@ const everyone = [
   "hank"
 ];
 const large = new Array(100).fill("nemo");
+// for 100 elements - 14ms
+// for 10000 elements - 300ms
+// for 100000 elements - 10500ms
+// for 1000000 elements - 135000ms
 
 function findNemo(array) {
   let t0 = performance.now();
