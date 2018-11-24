@@ -8,3 +8,5 @@ function logFirstTwoBoxes(boxes) {
 }
 
 logFirstTwoBoxes(boxes); // O(2)
+
+// Doesn't matter how big the input is, time will be always constant

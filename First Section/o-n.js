@@ -1,5 +1,5 @@
 // O(n) - linear time (big O of n)
-// Proportional time increase
+// Proportional/linear time increase
 
 const nemo = ["nemo"];
 const everyone = [
