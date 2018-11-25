@@ -52,4 +52,27 @@ function printFirstItemThenFirstHalfThenSayHi100Times(items) {
 
 // 3. Different terms for inputs
 
+function compressBoxesTwice(boxes, boxes2) {
+  boxes.forEach(boxes => console.log(boxes));
+  boxes2.forEach(boxes2 => console.log(boxes2));
+}
+
+// Big O will be O(a + b) because this will be dependent on two different values
+
 // 4. Drop non dominants
+
+function printaAllNumbersThenAllPairSums(numbers) {
+  console.log("these are the numbers:");
+  numbers.forEach(number => console.log(number));
+
+  console.log("and these are their sums:");
+  numbers.forEach(firstNumber => {
+    numbers.forEach(secondNumber => console.log(firstNumber + secondNumber));
+  });
+}
+
+printaAllNumbersThenAllPairSums([1, 3, 5, 7, 9]);
+
+// Big O notation would be - O(n + n^2)
+// But we want to drop non-dominant term, so Big O notation will be O(n^2)
+// By dominant - we perceive the one that will increase in the biggest pace
