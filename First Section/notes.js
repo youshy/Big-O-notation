@@ -30,3 +30,5 @@ function booArray(n) {
 }
 
 booArray(); // Space Complexity of O(n) - because we've created data structure
+
+// PREMATURE OPTIMALIZATION IS THE ROOT OF ALL EVIL
