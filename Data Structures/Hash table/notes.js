@@ -89,6 +89,30 @@ class HashTable {
     }
     this.data[address].push([key, value]);
   }
+
+  // Will be apple to loop over all keys
+  keys() {
+    const keysArray = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i]) {
+        keysArray.push(this.data[i][0][0]);
+        // because we have array in array in array
+      }
+    }
+    return keysArray;
+  }
 }
 
 const myHashTable = new HashTable(50);
+myHashTable.set("grapes", 1000);
+myHashTable.set("apples", 24);
+myHashTable.set("oranges", 2);
+myHashTable.set("watermelons", 10000);
+
+//
+// Hash table vs array
+//
+
+// Hash table - way quicker access to memory, no order
+
+// Array - ordered, bit slower
