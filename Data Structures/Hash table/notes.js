@@ -167,3 +167,16 @@ firstRecurringCharacter2([2, 5, 1, 2, 3, 5, 1, 2, 4]);
 // return 5 because the pairs are before 2,2
 
 // Depending on implementation - 1st method goes over whole array, 2nd goes only to the first recurring element
+
+//
+// Review
+//
+
+// Pros
+// Fast lookups - if good collision resolution provided
+// Fast inserts
+// Flexible keys
+
+// Cons
+// Unordered
+// Slow key iteration
