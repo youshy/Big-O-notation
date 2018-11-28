@@ -1,2 +1,1 @@
-# Big-O-notation
-# Big-O-notation
+# Data Science, Algorithms & Big-O notation
