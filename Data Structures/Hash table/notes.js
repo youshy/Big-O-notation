@@ -116,3 +116,54 @@ myHashTable.set("watermelons", 10000);
 // Hash table - way quicker access to memory, no order
 
 // Array - ordered, bit slower
+
+//
+// Excercise
+//
+
+// Google Question
+// Find first recurring character/number
+// Given an array = [2,5,1,2,3,5,1,2,4]:
+// It should return 2
+
+// Given an array = [2,1,1,2,3,5,1,2,4]:
+// It should return 1
+
+// Given an array = [2,3,4,5]:
+// It should return undefined
+
+function firstRecurringCharacter(input) {
+  // Naive approach
+  for (let i = 0; i < input.length; i++) {
+    for (let j = i + 1; j < input.length; j++) {
+      if (input[i] === input[j]) {
+        return input[i];
+      }
+    }
+  }
+  return undefined;
+} // O(n^2)
+// Space complexity - O(1)
+
+function firstRecurringCharacter2(input) {
+  // Using hash table
+  let map = {}; // Space complexity - O(n)
+  for (let i = 0; i < input.length; i++) {
+    if (map[input[i]] !== undefined) {
+      console.log("done? number = " + input[i]);
+      return input[i];
+    } else {
+      map[input[i]] = i;
+    }
+    console.log(map);
+  }
+  return undefined;
+} // O(n)
+
+firstRecurringCharacter2([2, 5, 1, 2, 3, 5, 1, 2, 4]);
+
+// Bonus... What if we had this:
+// [2,5,5,2,3,5,1,2,4]
+// return 5 because the pairs are before 2,2
+
+// Depending on implementation - 1st method goes over whole array, 2nd goes only to the first recurring element
