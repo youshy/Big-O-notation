@@ -104,6 +104,24 @@ class SingleLinkedList {
     this.length--;
     return this.printList();
   }
+
+  reverse() {
+    if (!this.head.next) {
+      return this.head;
+    }
+    let first = this.head;
+    this.tail = this.head;
+    let second = first.next;
+    while (second) {
+      const temp = second.next;
+      second.next = first;
+      first = second;
+      second = temp;
+    }
+    this.head.next = null;
+    this.head = first;
+    return this.printList();
+  }
 }
 
 const myList = new SingleLinkedList(10);
@@ -190,13 +208,22 @@ class DoublyLinkedList {
     return this.printList();
   }
 
-  remove(index) {
-    const leader = this._traverseToIndex(index - 1);
-    const toDelete = leader.next;
-    leader.next = toDelete.next;
-    this.length--;
-    return this.printList();
-  }
+  // TO RE-IMPLEMENT
+
+  // remove(index) {
+  //   const leader = this._traverseToIndex(index - 1);
+  //   const toDelete = leader.next;
+  //   leader.next = toDelete.next;
+  //   this.length--;
+  //   return this.printList();
+  // }
 }
 
 const doubleList = new DoublyLinkedList(10);
+
+//
+// Single vs double?
+//
+
+// Single - easier implementation, easy on memory, can be traversed only one way
+// Double - traversed from both sides, rather complex and harder on memory
