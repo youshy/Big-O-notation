@@ -30,13 +30,13 @@ let myLinkedList = {
   }
 };
 
-class Node {
+class SingleNode {
   constructor(value) {
     (this.value = value), (this.next = null);
   }
 }
 
-class LinkedList {
+class SingleLinkedList {
   constructor(value) {
     this.head = {
       value: value,
@@ -47,7 +47,7 @@ class LinkedList {
   }
 
   append(value) {
-    const newNode = new Node(value);
+    const newNode = new SingleNode(value);
     this.tail.next = newNode;
     this.tail = newNode;
     this.length++;
@@ -55,7 +55,7 @@ class LinkedList {
   }
 
   prepend(value) {
-    const newNode = new Node(value);
+    const newNode = new SingleNode(value);
     newNode.next = this.head;
     this.head = newNode;
     this.length++;
@@ -88,7 +88,7 @@ class LinkedList {
       this.append(value);
       return this.printList();
     }
-    const newNode = new Node(value);
+    const newNode = new SingleNode(value);
     const leader = this._traverseToIndex(index - 1);
     const holdPointer = leader.next;
     leader.next = newNode;
@@ -106,8 +106,97 @@ class LinkedList {
   }
 }
 
-const myList = new LinkedList(10);
+const myList = new SingleLinkedList(10);
 myList.append(32);
 myList.append(25);
 myList.append(253);
 myList.append(2626);
+
+//
+// Doubly linked lists
+//
+
+// One more pointer to show also previous node (not only next one)
+
+class DoubleNode {
+  constructor(value) {
+    (this.value = value), (this.next = null), (this.prev = null);
+  }
+}
+
+class DoublyLinkedList {
+  constructor(value) {
+    this.head = {
+      value: value,
+      next: null,
+      prev: null
+    };
+    this.tail = this.head;
+    this.length = 1;
+  }
+
+  append(value) {
+    const newNode = new DoubleNode(value);
+    newNode.prev = this.tail;
+    this.tail.next = newNode;
+    this.tail = newNode;
+    this.length++;
+    return this;
+  }
+
+  prepend(value) {
+    const newNode = new DoubleNode(value);
+    newNode.next = this.head;
+    this.head.prev = newNode;
+    this.head = newNode;
+    this.length++;
+    return this;
+  }
+
+  printList() {
+    const array = [];
+    let currentNode = this.head;
+    while (currentNode !== null) {
+      array.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return array;
+  }
+
+  _traverseToIndex(index) {
+    let counter = 0;
+    let currentNode = this.head;
+    while (counter !== index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode;
+  }
+
+  insert(index, value) {
+    // input check
+    if (index >= this.length) {
+      this.append(value);
+      return this.printList();
+    }
+    const newNode = new DoubleNode(value);
+    const leader = this._traverseToIndex(index - 1);
+    const follower = leader.next;
+    leader.next = newNode;
+    newNode.prev = leader;
+    newNode.next = follower;
+    follower.prev = newNode;
+    this.length++;
+    return this.printList();
+  }
+
+  remove(index) {
+    const leader = this._traverseToIndex(index - 1);
+    const toDelete = leader.next;
+    leader.next = toDelete.next;
+    this.length--;
+    return this.printList();
+  }
+}
+
+const doubleList = new DoublyLinkedList(10);
