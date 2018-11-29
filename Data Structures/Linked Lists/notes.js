@@ -96,6 +96,14 @@ class LinkedList {
     this.length++;
     return this.printList();
   }
+
+  remove(index) {
+    const leader = this._traverseToIndex(index - 1);
+    const toDelete = leader.next;
+    leader.next = toDelete.next;
+    this.length--;
+    return this.printList();
+  }
 }
 
 const myList = new LinkedList(10);
