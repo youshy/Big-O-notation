@@ -227,3 +227,17 @@ const doubleList = new DoublyLinkedList(10);
 
 // Single - easier implementation, easy on memory, can be traversed only one way
 // Double - traversed from both sides, rather complex and harder on memory
+
+//
+// To sum up
+//
+
+// Pros
+// Fast Insertion
+// Fast Deletion
+// Ordered
+// Flexible Size
+
+// Cons
+// Slow lookup
+// More memory
